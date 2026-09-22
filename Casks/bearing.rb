@@ -3,8 +3,8 @@ cask "bearing" do
   # edit this one and copy it over — see packaging/homebrew/README.md for the per-release steps.
   #
   # These two are re-pointed per release and must move together — see the url note below.
-  version "1.0.1"
-  sha256 "3b1d8a1c2cfe19eb001d108dc30ff257bfd2d9714f05bba88a491008a6d908c2"
+  version "1.1.0"
+  sha256 "c4771fc2ada2c64cf262a885137f0ac9e76d229e51e8673af87918c1e70e35ed"
 
   # The zip carries no version in its name, so the tag in the URL is what selects the build.
   url "https://github.com/moberghr/bearing/releases/download/v#{version}/BearingSql-osx-Portable.zip"
@@ -27,6 +27,12 @@ cask "bearing" do
   depends_on macos: :monterey
 
   app "Bearing.app"
+
+  # The `bearing` command ships inside the bundle (build/velopack.sh publishes it beside the GUI apphost)
+  # and is put on PATH here, which is the only step that makes it a command rather than a file. `bearing`
+  # with no arguments opens the app, so this is the whole entry point — the GUI apphost beside it is called
+  # `bearing-app` precisely so this one can have the name.
+  binary "#{appdir}/Bearing.app/Contents/MacOS/bearing"
 
   # Not zapped: the login keychain items holding connection passwords (§1.1). They are the user's
   # credentials, they are shared with any other install, and `brew zap` is not where someone expects to
