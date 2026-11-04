@@ -3,8 +3,8 @@ cask "bearing" do
   # edit this one and copy it over — see packaging/homebrew/README.md for the per-release steps.
   #
   # These two are re-pointed per release and must move together — see the url note below.
-  version "1.5.1"
-  sha256 "19bee956583ba6e3483f73a572b7ff6f7c95e9c7bc27a4873a17d7ae3f71d91f"
+  version "1.5.2"
+  sha256 "03118f714a709be4c9cb917355731117af546a81e1914d81ed294131cfb0f601"
 
   # The zip carries no version in its name, so the tag in the URL is what selects the build.
   url "https://github.com/moberghr/bearing/releases/download/v#{version}/BearingSql-osx-Portable.zip"
